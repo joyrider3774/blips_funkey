@@ -154,24 +154,24 @@ void Game()
             Input->Delay();
         }
 
-        if (Input->Ready() && (Input->JoystickHeld[0][JoystickSetup->GetButtonValue(BUT_LEFT)] || Input->KeyboardHeld[SDLK_l]))
+        if (Input->Ready() && (Input->JoystickHeld[0][JoystickSetup->GetButtonValue(BUT_LEFT)] || Input->KeyboardHeld[SDLK_l] || Input->KeyboardHeld[SDLK_LEFT] ))
         {
             Input->Delay();
         }
 
-        if (Input->Ready() && (Input->JoystickHeld[0][JoystickSetup->GetButtonValue(BUT_RIGHT)] || Input->KeyboardHeld[SDLK_r]))
+        if (Input->Ready() && (Input->JoystickHeld[0][JoystickSetup->GetButtonValue(BUT_RIGHT)] || Input->KeyboardHeld[SDLK_r] || Input->KeyboardHeld[SDLK_RIGHT] ))
         {
 
             Input->Delay();
         }
 
-        if (Input->JoystickHeld[0][JoystickSetup->GetButtonValue(BUT_DOWN)]|| Input->KeyboardHeld[SDLK_d])
+        if (Input->JoystickHeld[0][JoystickSetup->GetButtonValue(BUT_DOWN)]|| Input->KeyboardHeld[SDLK_d] || Input->KeyboardHeld[SDLK_DOWN] )
         {
             Input->Delay();
         }
 
         //move up
-        if (Input->JoystickHeld[0][JoystickSetup->GetButtonValue(BUT_UP)]|| Input->KeyboardHeld[SDLK_u])
+        if (Input->JoystickHeld[0][JoystickSetup->GetButtonValue(BUT_UP)]|| Input->KeyboardHeld[SDLK_u] || Input->KeyboardHeld[SDLK_UP] )
         {
             Input->Delay();
         }
@@ -180,13 +180,13 @@ void Game()
         {
             if (Input->JoystickHeld[0][JoystickSetup->GetButtonValue(BUT_Y)] || Input->KeyboardHeld[SDLK_y])
             {
-                if(Input->JoystickHeld[0][JoystickSetup->GetButtonValue(BUT_LEFT)] || Input->KeyboardHeld[SDLK_l])
+                if(Input->JoystickHeld[0][JoystickSetup->GetButtonValue(BUT_LEFT)] || Input->KeyboardHeld[SDLK_l] || Input->KeyboardHeld[SDLK_LEFT] )
                     WorldParts.ViewPort->Move(-2,0);
-                if(Input->JoystickHeld[0][JoystickSetup->GetButtonValue(BUT_RIGHT)] || Input->KeyboardHeld[SDLK_r])
+                if(Input->JoystickHeld[0][JoystickSetup->GetButtonValue(BUT_RIGHT)] || Input->KeyboardHeld[SDLK_r] || Input->KeyboardHeld[SDLK_RIGHT] )
                     WorldParts.ViewPort->Move(2,0);
-                if(Input->JoystickHeld[0][JoystickSetup->GetButtonValue(BUT_UP)] || Input->KeyboardHeld[SDLK_u])
+                if(Input->JoystickHeld[0][JoystickSetup->GetButtonValue(BUT_UP)] || Input->KeyboardHeld[SDLK_u] || Input->KeyboardHeld[SDLK_UP] )
                     WorldParts.ViewPort->Move(0,-2);
-                if( (Input->JoystickHeld[0][JoystickSetup->GetButtonValue(BUT_DOWN)] || Input->KeyboardHeld[SDLK_d]))
+                if( (Input->JoystickHeld[0][JoystickSetup->GetButtonValue(BUT_DOWN)] || Input->KeyboardHeld[SDLK_d] || Input->KeyboardHeld[SDLK_DOWN] ))
                     WorldParts.ViewPort->Move(0,2);
                 ResetViewPort = true;
             }
@@ -203,23 +203,23 @@ void Game()
             {
 
                 //move down
-                if (Input->JoystickHeld[0][JoystickSetup->GetButtonValue(BUT_DOWN)]|| Input->KeyboardHeld[SDLK_d])
+                if (Input->JoystickHeld[0][JoystickSetup->GetButtonValue(BUT_DOWN)]|| Input->KeyboardHeld[SDLK_d] || Input->KeyboardHeld[SDLK_DOWN] )
                 {
                         Player->MoveTo(Player->GetPlayFieldX(),Player->GetPlayFieldY()+1,false);
                 }
 
                 //move up
-                if (Input->JoystickHeld[0][JoystickSetup->GetButtonValue(BUT_UP)]|| Input->KeyboardHeld[SDLK_u])
+                if (Input->JoystickHeld[0][JoystickSetup->GetButtonValue(BUT_UP)]|| Input->KeyboardHeld[SDLK_u] || Input->KeyboardHeld[SDLK_UP])
                 {
                         Player->MoveTo(Player->GetPlayFieldX(),Player->GetPlayFieldY()-1,false);
                 }
                 //move left
-                if (Input->JoystickHeld[0][JoystickSetup->GetButtonValue(BUT_LEFT)] || Input->KeyboardHeld[SDLK_l])
+                if (Input->JoystickHeld[0][JoystickSetup->GetButtonValue(BUT_LEFT)] || Input->KeyboardHeld[SDLK_l] || Input->KeyboardHeld[SDLK_LEFT] )
                 {
                         Player->MoveTo(Player->GetPlayFieldX()-1,Player->GetPlayFieldY(),false);
                 }
                 //move right
-                if (Input->JoystickHeld[0][JoystickSetup->GetButtonValue(BUT_RIGHT)] || Input->KeyboardHeld[SDLK_r])
+                if (Input->JoystickHeld[0][JoystickSetup->GetButtonValue(BUT_RIGHT)] || Input->KeyboardHeld[SDLK_r] || Input->KeyboardHeld[SDLK_RIGHT] )
                 {
                         Player->MoveTo(Player->GetPlayFieldX()+1,Player->GetPlayFieldY(),false);
                 }

@@ -302,7 +302,7 @@ char *GetString(char *NameIn,char *Msg)
         if(Input->SpecialsHeld[SPECIAL_QUIT_EV])
             GameState = GSQuit;
 
-        if(Input->Ready() && (Input->JoystickHeld[0][JoystickSetup->GetButtonValue(BUT_LEFT)] || Input->KeyboardHeld[SDLK_l]))
+        if(Input->Ready() && (Input->JoystickHeld[0][JoystickSetup->GetButtonValue(BUT_LEFT)] || Input->KeyboardHeld[SDLK_l] || Input->KeyboardHeld[SDLK_LEFT]))
         {
             if (Selection > 0)
             {	Selection--;
@@ -311,7 +311,7 @@ char *GetString(char *NameIn,char *Msg)
             Input->Delay();
         }
 
-        if(Input->Ready() && (Input->JoystickHeld[0][JoystickSetup->GetButtonValue(BUT_RIGHT)] || Input->KeyboardHeld[SDLK_r]))
+        if(Input->Ready() && (Input->JoystickHeld[0][JoystickSetup->GetButtonValue(BUT_RIGHT)] || Input->KeyboardHeld[SDLK_r] || Input->KeyboardHeld[SDLK_RIGHT] ))
         {
             if (Selection < 19)
             {
@@ -327,7 +327,7 @@ char *GetString(char *NameIn,char *Msg)
             Input->Delay();
         }
 
-        if(Input->Ready() && (Input->JoystickHeld[0][JoystickSetup->GetButtonValue(BUT_UP)] || Input->KeyboardHeld[SDLK_u]))
+        if(Input->Ready() && (Input->JoystickHeld[0][JoystickSetup->GetButtonValue(BUT_UP)] || Input->KeyboardHeld[SDLK_u] || Input->KeyboardHeld[SDLK_UP] ))
         {
             asci++;
             if (asci==123)
@@ -347,7 +347,7 @@ char *GetString(char *NameIn,char *Msg)
             Input->Delay();
         }
 
-        if(Input->Ready() && (Input->JoystickHeld[0][JoystickSetup->GetButtonValue(BUT_DOWN)] || Input->KeyboardHeld[SDLK_d]))
+        if(Input->Ready() && (Input->JoystickHeld[0][JoystickSetup->GetButtonValue(BUT_DOWN)] || Input->KeyboardHeld[SDLK_d] || Input->KeyboardHeld[SDLK_DOWN] ))
         {
             asci--;
             if(asci==96)

@@ -319,7 +319,7 @@ void LevelEditor()
             }
         }
 
-        if (Input->Ready() && (Input->JoystickHeld[0][JoystickSetup->GetButtonValue(BUT_LEFT)] || Input->KeyboardHeld[SDLK_l]))
+        if (Input->Ready() && (Input->JoystickHeld[0][JoystickSetup->GetButtonValue(BUT_LEFT)] || Input->KeyboardHeld[SDLK_l] || Input->KeyboardHeld[SDLK_LEFT] ))
         {
             Selector.MoveLeft();
             if(Selector.GetPlayFieldX() <  WorldParts.ViewPort->VPMinX+3)
@@ -327,7 +327,7 @@ void LevelEditor()
             Input->Delay();
         }
 
-        if (Input->Ready() && (Input->JoystickHeld[0][JoystickSetup->GetButtonValue(BUT_RIGHT)] || Input->KeyboardHeld[SDLK_r]))
+        if (Input->Ready() && (Input->JoystickHeld[0][JoystickSetup->GetButtonValue(BUT_RIGHT)] || Input->KeyboardHeld[SDLK_r] || Input->KeyboardHeld[SDLK_RIGHT] ))
         {
             Selector.MoveRight();
             if(Selector.GetPlayFieldX() > WorldParts.ViewPort->VPMaxX - 3)
@@ -335,7 +335,7 @@ void LevelEditor()
             Input->Delay();
         }
 
-        if (Input->Ready() && (Input->JoystickHeld[0][JoystickSetup->GetButtonValue(BUT_UP)] || Input->KeyboardHeld[SDLK_u]))
+        if (Input->Ready() && (Input->JoystickHeld[0][JoystickSetup->GetButtonValue(BUT_UP)] || Input->KeyboardHeld[SDLK_u] || Input->KeyboardHeld[SDLK_UP] ))
         {
             Selector.MoveUp();
             if(Selector.GetPlayFieldY() < WorldParts.ViewPort->VPMinY+3)
@@ -343,7 +343,7 @@ void LevelEditor()
             Input->Delay();
         }
 
-        if (Input->Ready() && (Input->JoystickHeld[0][JoystickSetup->GetButtonValue(BUT_DOWN)] || Input->KeyboardHeld[SDLK_d]))
+        if (Input->Ready() && (Input->JoystickHeld[0][JoystickSetup->GetButtonValue(BUT_DOWN)] || Input->KeyboardHeld[SDLK_d] || Input->KeyboardHeld[SDLK_DOWN] ))
         {
             Selector.MoveDown();
             if(Selector.GetPlayFieldY() > WorldParts.ViewPort->VPMaxY-3)

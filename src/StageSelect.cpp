@@ -212,7 +212,7 @@ void StageSelect()
             Input->Delay();
         }
 
-        if (Input->Ready() && (Input->JoystickHeld[0][JoystickSetup->GetButtonValue(BUT_LEFT)] || Input->KeyboardHeld[SDLK_l]))
+        if (Input->Ready() && (Input->JoystickHeld[0][JoystickSetup->GetButtonValue(BUT_LEFT)] || Input->KeyboardHeld[SDLK_l] || Input->KeyboardHeld[SDLK_LEFT] ))
         {
             
             if(LevelEditorMode)
@@ -249,7 +249,7 @@ void StageSelect()
             Input->Delay();
         }
 
-        if (Input->Ready() && (Input->JoystickHeld[0][JoystickSetup->GetButtonValue(BUT_RIGHT)] || Input->KeyboardHeld[SDLK_r]))
+        if (Input->Ready() && (Input->JoystickHeld[0][JoystickSetup->GetButtonValue(BUT_RIGHT)] || Input->KeyboardHeld[SDLK_r] || Input->KeyboardHeld[SDLK_RIGHT] ))
         {
             if(SelectedLevel != InstalledLevels)
 			{

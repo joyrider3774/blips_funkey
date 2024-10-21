@@ -31,28 +31,28 @@ void Intro()
 
         if(Input->JoystickHeld[0][JoystickSetup->GetButtonValue(BUT_R)] || Input->KeyboardHeld[SDLK_n])
         {
-            if(Input->Ready() && (Input->JoystickHeld[0][JoystickSetup->GetButtonValue(BUT_LEFT)] || Input->KeyboardHeld[SDLK_l]))
+            if(Input->Ready() && (Input->JoystickHeld[0][JoystickSetup->GetButtonValue(BUT_LEFT)] || Input->KeyboardHeld[SDLK_l] || Input->KeyboardHeld[SDLK_LEFT] ))
             {
                 if(StartScreenX - 2 >= 0)
                     StartScreenX -=2;
                 Input->Delay();
             }
 
-            if(Input->Ready() && (Input->JoystickHeld[0][JoystickSetup->GetButtonValue(BUT_RIGHT)] || Input->KeyboardHeld[SDLK_r]))
+            if(Input->Ready() && (Input->JoystickHeld[0][JoystickSetup->GetButtonValue(BUT_RIGHT)] || Input->KeyboardHeld[SDLK_r] || Input->KeyboardHeld[SDLK_RIGHT] ))
             {
                 if(StartScreenX + 2 + Buffer->w <= Screen->w)
                     StartScreenX +=2;
                 Input->Delay();
             }
 
-            if(Input->Ready() && (Input->JoystickHeld[0][JoystickSetup->GetButtonValue(BUT_UP)] || Input->KeyboardHeld[SDLK_u]))
+            if(Input->Ready() && (Input->JoystickHeld[0][JoystickSetup->GetButtonValue(BUT_UP)] || Input->KeyboardHeld[SDLK_u] || Input->KeyboardHeld[SDLK_UP] ))
             {
                 if(StartScreenY - 2 >=0)
                     StartScreenY -=2;
                 Input->Delay();
             }
 
-            if(Input->Ready() && (Input->JoystickHeld[0][JoystickSetup->GetButtonValue(BUT_DOWN)] || Input->KeyboardHeld[SDLK_d]))
+            if(Input->Ready() && (Input->JoystickHeld[0][JoystickSetup->GetButtonValue(BUT_DOWN)] || Input->KeyboardHeld[SDLK_d] || Input->KeyboardHeld[SDLK_DOWN] ))
             {
                 if(StartScreenY + 2 + Buffer->h <= Screen->h)
                     StartScreenY +=2;

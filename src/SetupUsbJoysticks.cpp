@@ -45,7 +45,7 @@ void SetupUsbJoystickButtons()
             GameState = GSTitleScreen;
 		}
 
-        if(Input->Ready() && (Input->KeyboardHeld[SDLK_u] || Input->JoystickHeld[0][JoystickSetup->GetButtonValue(BUT_UP)]))
+        if(Input->Ready() && (Input->KeyboardHeld[SDLK_u] || Input->KeyboardHeld[SDLK_UP] || Input->JoystickHeld[0][JoystickSetup->GetButtonValue(BUT_UP)]))
         {
             Selection--;
             if( Selection < 0)
@@ -58,7 +58,7 @@ void SetupUsbJoystickButtons()
         if (Input->KeyboardHeld[SDLK_s])
             JoystickSetup->ResetToDefaults();
 
-        if(Input->Ready() && (Input->KeyboardHeld[SDLK_d] || Input->JoystickHeld[0][JoystickSetup->GetButtonValue(BUT_DOWN)]))
+        if(Input->Ready() && (Input->KeyboardHeld[SDLK_d] || Input->KeyboardHeld[SDLK_DOWN] || Input->JoystickHeld[0][JoystickSetup->GetButtonValue(BUT_DOWN)]))
         {
             Selection++;
             if( Selection >=NROFBUTTONS)
