@@ -119,10 +119,13 @@ void LevelEditor()
 		SDL_BlitSurface(Tmp,NULL,Buffer,NULL);
         SDL_FillRect(Buffer1,NULL,SDL_MapRGB(Buffer1->format,0,0,0));
         SDL_BlitSurface(Buffer,NULL,Buffer1,&Rect);
+#ifdef FUNKEY
         SDL_BlitSurface(Buffer1,NULL,Screen,NULL);
-		//SDL_Surface *ScreenBufferZoom = zoomSurface(Buffer1,(double)WINDOW_WIDTH / ORIG_WINDOW_WIDTH,(double)WINDOW_HEIGHT / ORIG_WINDOW_HEIGHT,0);
-        //SDL_BlitSurface(ScreenBufferZoom,NULL,Screen,NULL);
-        //SDL_FreeSurface(ScreenBufferZoom);
+#else
+		SDL_Surface *ScreenBufferZoom = zoomSurface(Buffer1,(double)WINDOW_WIDTH / ORIG_WINDOW_WIDTH,(double)WINDOW_HEIGHT / ORIG_WINDOW_HEIGHT,0);
+        SDL_BlitSurface(ScreenBufferZoom,NULL,Screen,NULL);
+        SDL_FreeSurface(ScreenBufferZoom);
+#endif
         SDL_Flip(Screen);
 
         Input->Update();

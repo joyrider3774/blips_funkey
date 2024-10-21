@@ -30,26 +30,26 @@ int main(int argc, char **argv)
 			disableJoysticks = true;
 		if(strcasecmp(argv[i], "-s2") == 0)
 		{
-			WINDOW_WIDTH = 640 * 2;
-			WINDOW_HEIGHT = 360 * 2;
+			WINDOW_WIDTH = 240 * 2;
+			WINDOW_HEIGHT = 240 * 2;
 		}
 
 		if(strcasecmp(argv[i], "-s3") == 0)
 		{
-			WINDOW_WIDTH = 640 * 3;
-			WINDOW_HEIGHT = 360 * 3;
+			WINDOW_WIDTH = 240 * 3;
+			WINDOW_HEIGHT = 240 * 3;
 		}
 
 		if(strcasecmp(argv[i], "-s4") == 0)
 		{
-			WINDOW_WIDTH = 640 * 4;
-			WINDOW_HEIGHT = 360 * 4;
+			WINDOW_WIDTH = 240 * 4;
+			WINDOW_HEIGHT = 240 * 4;
 		}
 
 		if(strcasecmp(argv[i], "-s5") == 0)
 		{
-			WINDOW_WIDTH = 640 * 5;
-			WINDOW_HEIGHT = 360 * 5;
+			WINDOW_WIDTH = 240 * 5;
+			WINDOW_HEIGHT = 240 * 5;
 		}
 	}
 
