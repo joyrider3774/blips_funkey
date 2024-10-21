@@ -152,7 +152,7 @@ void LoadJoystickSettings()
     JoystickSetup->AddDefinition(BUT_VOLUP,"Volume up",9,9);
     JoystickSetup->AddDefinition(BUT_VOLMIN,"Volume down",8,8);
 #endif
-JoystickSetup->LoadCurrentButtonValues("./joystick.def");
+	//JoystickSetup->LoadCurrentButtonValues("./joystick.def");
 }
 
 

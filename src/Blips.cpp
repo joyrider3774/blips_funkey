@@ -153,7 +153,7 @@ int main(int argc, char **argv)
 						MonoFont=NULL;
 						font=NULL;
 						BigFont=NULL;
-						JoystickSetup->SaveCurrentButtonValues("./joystick.def");
+						//JoystickSetup->SaveCurrentButtonValues("./joystick.def");
 						delete JoystickSetup;
 					}
 					else
