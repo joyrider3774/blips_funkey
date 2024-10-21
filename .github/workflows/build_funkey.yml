@@ -34,11 +34,11 @@ jobs:
         run: |
           mkdir -p opk
           cp blips opk/blips
-          cp -r ./levelpacks opk/blips/levelpacks
-          cp -r ./graphics opk/blips/graphics
-          cp -r ./fonts opk/blips/fonts
-          cp -r ./sound opk/blips/sound
-          cp -r ./music opk/blips/music
+          cp -R ./levelpacks opk/blips/
+          cp -R ./graphics opk/blips/
+          cp -R ./fonts opk/blips/
+          cp -R ./sound opk/blips/
+          cp -R ./music opk/blips/
           cp $GAME_NAME.$GAME_SYS.desktop opk/$GAME_NAME.$GAME_SYS.desktop
 
           mksquashfs ./opk $GAME_NAME.opk -all-root -noappend -no-exports -no-xattrs

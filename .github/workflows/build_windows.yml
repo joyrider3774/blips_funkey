@@ -46,11 +46,11 @@ jobs:
           mkdir ./Release
           mkdir "./Release/${{matrix.name}}"
           cp "${{matrix.name}}.exe" "./Release/${{matrix.name}}/"
-          cp -r ./levelpacks ./Release/${{matrix.name}}/levelpacks
-          cp -r ./graphics ./Release/${{matrix.name}}/graphics
-          cp -r ./fonts ./Release/${{matrix.name}}/fonts
-          cp -r ./sound ./Release/${{matrix.name}}/sound
-          cp -r ./music ./Release/${{matrix.name}}/music
+          cp -r ./levelpacks "./Release/${{matrix.name}}/"
+          cp -r ./graphics "./Release/${{matrix.name}}/"
+          cp -r ./fonts "./Release/${{matrix.name}}/"
+          cp -r ./sound "./Release/${{matrix.name}}/"
+          cp -r ./music "./Release/${{matrix.name}}/"
           cp ./README.md "./Release/${{matrix.name}}/"
           cp ./LICENSE "./Release/${{matrix.name}}/"
 
