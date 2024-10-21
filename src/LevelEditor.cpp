@@ -189,7 +189,7 @@ void LevelEditor()
 			}
         }
 
-        if(Input->Ready() && (Input->JoystickHeld[0][JoystickSetup->GetButtonValue(BUT_START)] || Input->KeyboardHeld[SDLK_s]))
+        if(Input->Ready() && (Input->JoystickHeld[0][JoystickSetup->GetButtonValue(BUT_START)] || Input->KeyboardHeld[SDLK_s] || Input->KeyboardHeld[SDLK_RETURN] ))
         {
             if(!LevelErrorsFound())
             {

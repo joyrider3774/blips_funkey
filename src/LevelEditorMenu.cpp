@@ -149,7 +149,7 @@ void LevelEditorMenu()
         if(Input->SpecialsHeld[SPECIAL_QUIT_EV])
             GameState = GSQuit;
 
-        if(Input->JoystickHeld[0][JoystickSetup->GetButtonValue(BUT_A)] || Input->KeyboardHeld[SDLK_a] || Input->KeyboardHeld[SDLK_SPACE] || Input->KeyboardHeld[SDLK_s])
+        if(Input->JoystickHeld[0][JoystickSetup->GetButtonValue(BUT_A)] || Input->KeyboardHeld[SDLK_a] || Input->KeyboardHeld[SDLK_SPACE] || Input->KeyboardHeld[SDLK_s] || Input->KeyboardHeld[SDLK_RETURN])
         {
             switch(Selection)
             {
