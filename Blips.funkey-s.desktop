@@ -1,0 +1,8 @@
+[Desktop Entry]
+Name=Blips
+Comment=A remake of the dos Bips game
+Terminal=false
+Type=Application
+Exec=blips
+Icon=graphics/blips
+Categories=games
