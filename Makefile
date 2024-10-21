@@ -9,7 +9,7 @@ OBJS=$(addprefix $(OBJ_DIR)/, $(SRC:.cpp=.o))
 
 CXX ?= g++
 SDLCONFIG ?= sdl-config
-CXXFLAGS ?= -Os -Wall -Wextra
+CXXFLAGS ?= -Os -Wall -Wextra -Wno-write-strings
 LDFLAGS ?= -lSDL_image -lSDL_ttf -lSDL_mixer -lmikmod -lSDL_gfx -lm
 
 ifdef DEBUG

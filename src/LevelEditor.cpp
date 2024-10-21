@@ -243,30 +243,33 @@ void LevelEditor()
                     {
                         if((WorldParts.Items[Teller]->GetPlayFieldX() == Selector.GetPlayFieldX()) &&
                            (WorldParts.Items[Teller]->GetPlayFieldY() == Selector.GetPlayFieldY()))
-                            if(WorldParts.Items[Teller]->GetType() == IDFloor)
-                            {
-                                AnotherPartFound = false;
-                                for(Teller2=Teller+1;Teller2<WorldParts.ItemCount;Teller2++)
-                                    if((WorldParts.Items[Teller2]->GetPlayFieldX() == Selector.GetPlayFieldX()) &&
-                                       (WorldParts.Items[Teller2]->GetPlayFieldY() == Selector.GetPlayFieldY()))
-                                        {
-                                                WorldParts.Remove(WorldParts.Items[Teller2]->GetPlayFieldX(),WorldParts.Items[Teller2]->GetPlayFieldY(),WorldParts.Items[Teller2]->GetType());
-                                                AnotherPartFound = true;
-                                                break;
-                                        }
+						   {
+								if(WorldParts.Items[Teller]->GetType() == IDFloor)
+								{
+									AnotherPartFound = false;
+									for(Teller2=Teller+1;Teller2<WorldParts.ItemCount;Teller2++)
+										if((WorldParts.Items[Teller2]->GetPlayFieldX() == Selector.GetPlayFieldX()) &&
+										(WorldParts.Items[Teller2]->GetPlayFieldY() == Selector.GetPlayFieldY()))
+											{
+													WorldParts.Remove(WorldParts.Items[Teller2]->GetPlayFieldX(),WorldParts.Items[Teller2]->GetPlayFieldY(),WorldParts.Items[Teller2]->GetType());
+													AnotherPartFound = true;
+													break;
+											}
 
 
-                                if (!AnotherPartFound)
-                                {
-                                    WorldParts.Remove(WorldParts.Items[Teller]->GetPlayFieldX(),WorldParts.Items[Teller]->GetPlayFieldY(),IDFloor);
-                                    break;
-                                }
-                            }
-                            else
-                            {
-                                WorldParts.Remove(Selector.GetPlayFieldX(),Selector.GetPlayFieldY());
-                                break;
-                            }
+									if (!AnotherPartFound)
+									{
+										WorldParts.Remove(WorldParts.Items[Teller]->GetPlayFieldX(),WorldParts.Items[Teller]->GetPlayFieldY(),IDFloor);
+										break;
+									}
+								}
+								else
+								{
+									WorldParts.Remove(Selector.GetPlayFieldX(),Selector.GetPlayFieldY());
+									break;
+								
+								}
+						   }
                     }
                     break;
                 case IDBox:

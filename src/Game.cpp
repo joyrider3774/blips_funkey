@@ -10,7 +10,7 @@
 
 bool StageDone()
 {
-	int Teller,NumDiamonds=0;
+	int Teller;
 	for (Teller=0;Teller<WorldParts.ItemCount;Teller++)
 		if (WorldParts.Items[Teller]->GetType() == IDDiamond)
 		{
@@ -100,7 +100,7 @@ void Game()
             Input->Delay();
         }
 
-        if(Input->Ready() && Input->JoystickHeld[0][JoystickSetup->GetButtonValue(BUT_B)] || Input->KeyboardHeld[SDLK_ESCAPE] || Input->KeyboardHeld[SDLK_b])
+        if(Input->Ready() && (Input->JoystickHeld[0][JoystickSetup->GetButtonValue(BUT_B)] || Input->KeyboardHeld[SDLK_ESCAPE] || Input->KeyboardHeld[SDLK_b]))
         {
             if(!LevelEditorMode)
 			{
