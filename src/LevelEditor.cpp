@@ -3,6 +3,7 @@
 #include <SDL_framerate.h>
 #include <SDL_gfxPrimitives.h>
 #include <SDL_rotozoom.h>
+#include <unistd.h>
 #include "Common.h"
 #include "GameFuncs.h"
 #include "CInput.h"
@@ -162,6 +163,18 @@ void LevelEditor()
                     }
                     if (!LevelErrorsFound())
                     {
+						sprintf(FileName,"%s/.blips_levelpacks",getenv("HOME") == NULL ? ".": getenv("HOME"));
+#ifdef WIN32
+                        mkdir(FileName);
+#else
+                        mkdir(FileName,S_IRWXO|S_IRWXU|S_IRWXG);
+#endif
+						sprintf(FileName,"%s/.blips_levelpacks/%s",getenv("HOME") == NULL ? ".": getenv("HOME"), LevelPackFileName);
+#ifdef WIN32
+                        mkdir(FileName);
+#else
+                        mkdir(FileName,S_IRWXO|S_IRWXU|S_IRWXG);
+#endif
                         if (SelectedLevel==0)
                             sprintf(FileName,"%s/.blips_levelpacks/%s/level%d.lev",getenv("HOME") == NULL ? ".": getenv("HOME"),LevelPackFileName,InstalledLevels+1);
                         else
