@@ -161,30 +161,26 @@ void FindLevels()
 {
 	int Teller=1;
 	char *FileName = new char[FILENAME_MAX];
+	char *FileName2 = new char[FILENAME_MAX];
 	InstalledLevels = 0;
 	bool homepath=false;
-	sprintf(FileName,"./levelpacks/%s/level%d.lev",LevelPackFileName,Teller);
-	if(!FileExists(FileName))
-	{
-		homepath = true;
-		sprintf(FileName,"%s/.blips_levelpacks/%s/level%d.lev", getenv("HOME") == NULL ? ".": getenv("HOME"), LevelPackFileName, Teller);
-	}
-	while (FileExists(FileName))
+	sprintf(FileName,"%s/.blips_levelpacks/%s/level%d.lev", getenv("HOME") == NULL ? ".": getenv("HOME"), LevelPackFileName, Teller);
+	sprintf(FileName2,"./levelpacks/%s/level%d.lev",LevelPackFileName,Teller);		
+	while (FileExists(FileName) || FileExists(FileName2))
 	{
 		Teller+=30;
-		sprintf(FileName,"./levelpacks/%s/level%d.lev",LevelPackFileName,Teller);
-		if(homepath)
-			sprintf(FileName,"%s/.blips_levelpacks/%s/level%d.lev", getenv("HOME") == NULL ? ".": getenv("HOME"), LevelPackFileName, Teller);
+		sprintf(FileName,"%s/.blips_levelpacks/%s/level%d.lev", getenv("HOME") == NULL ? ".": getenv("HOME"), LevelPackFileName, Teller);
+		sprintf(FileName2,"./levelpacks/%s/level%d.lev",LevelPackFileName,Teller);
 	}
-	while (!FileExists(FileName) && (Teller >=1) )
+	while (!FileExists(FileName) && !FileExists(FileName2) && (Teller >=1) )
 	{
 		Teller--;
-		sprintf(FileName,"./levelpacks/%s/level%d.lev",LevelPackFileName,Teller);
-		if(homepath)
-			sprintf(FileName,"%s/.blips_levelpacks/%s/level%d.lev", getenv("HOME") == NULL ? ".": getenv("HOME"), LevelPackFileName, Teller);
+		sprintf(FileName,"%s/.blips_levelpacks/%s/level%d.lev", getenv("HOME") == NULL ? ".": getenv("HOME"), LevelPackFileName, Teller);
+		sprintf(FileName2,"./levelpacks/%s/level%d.lev",LevelPackFileName,Teller);
 	}
 	InstalledLevels=Teller;
 	delete[] FileName;
+	delete[] FileName2;
 }
 
 void WriteText(SDL_Surface* Surface,TTF_Font* FontIn,char* Tekst,int NrOfChars,int X,int Y,int YSpacing,SDL_Color ColorIn,bool Centered)
