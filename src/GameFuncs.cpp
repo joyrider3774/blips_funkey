@@ -296,7 +296,11 @@ char *GetString(char *NameIn,char *Msg)
 		Input->Update();
 
         if(Input->SpecialsHeld[SPECIAL_QUIT_EV])
+		{
             GameState = GSQuit;
+			SubmitChanges=false;
+			End = true;
+		}
 
         if(Input->Ready() && (Input->JoystickHeld[0][JoystickSetup->GetButtonValue(BUT_LEFT)] || Input->KeyboardHeld[SDLK_l] || Input->KeyboardHeld[SDLK_LEFT]))
         {
@@ -389,7 +393,7 @@ char *GetString(char *NameIn,char *Msg)
 			strcat(Tekst,"_");
 		}
 		else
-			sprintf(Tekst,"_");
+			strcpy(Tekst,"_");
 		WriteText(Buffer,MonoFont,Tekst,strlen(Tekst),45*UI_WIDTH_SCALE,112*UI_HEIGHT_SCALE,2,MenuTextColor,false);
 		sprintf(Tekst,"Use Up,Down,Left,right.\nA = Ok X = Cancel" );
 		WriteText(Buffer,font,Tekst,strlen(Tekst),65*UI_WIDTH_SCALE,135*UI_HEIGHT_SCALE,2,MenuTextColor,false);
@@ -620,6 +624,8 @@ void PrintForm(char *msg)
         }
         SDL_framerateDelay(&Fpsman);
     }
+	if(Input->SpecialsHeld[SPECIAL_QUIT_EV])
+		GameState = GSQuit;
 
 	delete Input;
 }
@@ -787,7 +793,6 @@ void SearchForLevelPacks()
 		sprintf(LevelPackFileName,"%s","");
 	}
 }
-
 
 void LoadGraphics()
 {

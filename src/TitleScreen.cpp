@@ -196,7 +196,7 @@ void TitleScreen()
 			strcat(Tekst,">>");
 		}
 		else
-			sprintf(Tekst,">>");
+			strcpy(Tekst,">>");
 		WriteText(Tmp,BigFont,Tekst,strlen(Tekst),45*UI_WIDTH_SCALE,85*UI_HEIGHT_SCALE,2,MenuTextColor,false);
 		Rect.w = Buffer->w;
         Rect.h = Buffer->h;
