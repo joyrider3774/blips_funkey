@@ -731,6 +731,7 @@ void DoSearchForLevelPacks(char* Path)
 	DIR *Directory;
 	struct stat Stats;
 	char FileName[FILENAME_MAX];
+	char Name[21];
 	Directory = opendir(Path);
 	if (Directory)
 	{
@@ -743,9 +744,24 @@ void DoSearchForLevelPacks(char* Path)
 			{
 				if(strncmp(".", Entry->d_name, 1)  && (InstalledLevelPacksCount< MaxLevelPacks) && (strlen(Entry->d_name) < 21))
 				{
-					sprintf(InstalledLevelPacks[InstalledLevelPacksCount],"%s",Entry->d_name);
-					RemoveUnderScores(InstalledLevelPacks[InstalledLevelPacksCount]);
-					InstalledLevelPacksCount++;
+					sprintf(Name,"%s",Entry->d_name);
+					RemoveUnderScores(Name);
+					bool found = false;
+					for (int i = 0; i < InstalledLevelPacksCount; i++)
+					{
+						if(strcmp(Name, InstalledLevelPacks[i]) == 0)
+						{
+							found = true;
+							break;
+						}
+					}
+					
+					if(!found)
+					{
+						sprintf(InstalledLevelPacks[InstalledLevelPacksCount],"%s",Entry->d_name);
+						RemoveUnderScores(InstalledLevelPacks[InstalledLevelPacksCount]);
+						InstalledLevelPacksCount++;
+					}
 				}
 			}
 			Entry=readdir(Directory);
