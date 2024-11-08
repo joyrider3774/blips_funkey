@@ -59,7 +59,7 @@ void StageSelect()
 		WriteText(Tmp,font,Tekst,strlen(Tekst),2,0,0,MenuTextColor,false);
 		Input->Update();
 
-        if(Input->SpecialsHeld[SPECIAL_QUIT_EV])
+        if(Input->SpecialsHeld[SPECIAL_QUIT_EV] || Input->KeyboardHeld[SDLK_q])
             GameState = GSQuit;
 
         if (Input->Ready() && (Input->JoystickHeld[0][JoystickSetup->GetButtonValue(BUT_VOLUP)] || Input->KeyboardHeld[SDLK_o]))
@@ -142,7 +142,7 @@ void StageSelect()
 				Input->Delay();
 			}
 
-			if(Input->Ready() && (Input->JoystickHeld[0][JoystickSetup->GetButtonValue(BUT_A)] || Input->KeyboardHeld[SDLK_a] || Input->KeyboardHeld[SDLK_q] || Input->KeyboardHeld[SDLK_s] || Input->KeyboardHeld[SDLK_SPACE] || Input->KeyboardHeld[SDLK_RETURN]))
+			if(Input->Ready() && (Input->JoystickHeld[0][JoystickSetup->GetButtonValue(BUT_A)] || Input->KeyboardHeld[SDLK_a] || Input->KeyboardHeld[SDLK_s] || Input->KeyboardHeld[SDLK_SPACE] || Input->KeyboardHeld[SDLK_RETURN]))
 			{
 				if (GlobalSoundEnabled)
 					Mix_PlayChannel(-1,Sounds[SND_SELECT],0);

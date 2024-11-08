@@ -26,7 +26,7 @@ void Intro()
             GameState=GSTitleScreen;
         }
 
-        if(Input->SpecialsHeld[SPECIAL_QUIT_EV])
+        if(Input->SpecialsHeld[SPECIAL_QUIT_EV] || Input->KeyboardHeld[SDLK_q])
             GameState = GSQuit;
 
         if(Input->JoystickHeld[0][JoystickSetup->GetButtonValue(BUT_R)] || Input->KeyboardHeld[SDLK_n])

@@ -131,7 +131,7 @@ void LevelEditor()
         SDL_Flip(Screen);
 
         Input->Update();
-        if(Input->SpecialsHeld[SPECIAL_QUIT_EV])
+        if(Input->SpecialsHeld[SPECIAL_QUIT_EV] || Input->KeyboardHeld[SDLK_q])
             GameState = GSQuit;
 
         if (Input->Ready() && (Input->JoystickHeld[0][JoystickSetup->GetButtonValue(BUT_VOLUP)] || Input->KeyboardHeld[SDLK_o]))
@@ -233,7 +233,7 @@ void LevelEditor()
             Input->Delay();
         }
 
-        if(Input->JoystickHeld[0][JoystickSetup->GetButtonValue(BUT_A)] || Input->KeyboardHeld[SDLK_a] || Input->KeyboardHeld[SDLK_q] || Input->KeyboardHeld[SDLK_SPACE])
+        if(Input->JoystickHeld[0][JoystickSetup->GetButtonValue(BUT_A)] || Input->KeyboardHeld[SDLK_a] || Input->KeyboardHeld[SDLK_SPACE])
         {
             SamePartFound = false;
             for(Teller=0;Teller<WorldParts.ItemCount;Teller++)

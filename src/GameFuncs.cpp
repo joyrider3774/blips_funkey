@@ -295,7 +295,7 @@ char *GetString(char *NameIn,char *Msg)
         }
 		Input->Update();
 
-        if(Input->SpecialsHeld[SPECIAL_QUIT_EV])
+        if(Input->SpecialsHeld[SPECIAL_QUIT_EV] || Input->KeyboardHeld[SDLK_q])
 		{
             GameState = GSQuit;
 			SubmitChanges=false;
@@ -366,7 +366,7 @@ char *GetString(char *NameIn,char *Msg)
             Input->Delay();
         }
 
-        if(Input->Ready() && (Input->JoystickHeld[0][JoystickSetup->GetButtonValue(BUT_A)] || Input->KeyboardHeld[SDLK_SPACE] || Input->KeyboardHeld[SDLK_q] || Input->KeyboardHeld[SDLK_a] || Input->KeyboardHeld[SDLK_s] || Input->KeyboardHeld[SDLK_RETURN]))
+        if(Input->Ready() && (Input->JoystickHeld[0][JoystickSetup->GetButtonValue(BUT_A)] || Input->KeyboardHeld[SDLK_SPACE] || Input->KeyboardHeld[SDLK_a] || Input->KeyboardHeld[SDLK_s] || Input->KeyboardHeld[SDLK_RETURN]))
         {
             if (GlobalSoundEnabled)
                 Mix_PlayChannel(-1,Sounds[SND_SELECT],0);
@@ -423,7 +423,7 @@ char *GetString(char *NameIn,char *Msg)
 			MaxSelection--;
 		}
 	if (!SubmitChanges)
-		sprintf(PackName,"%s",NameIn);
+		PackName[0] = '\0';
 	delete Input;
 	return PackName;
 }
@@ -571,7 +571,7 @@ bool AskQuestion(char *Msg)
 #endif
     SDL_Flip(Screen);
 	{
-		while (!(Input->KeyboardHeld[SDLK_z] || Input->KeyboardHeld[SDLK_RETURN] || Input->KeyboardHeld[SDLK_ESCAPE] || Input->SpecialsHeld[SPECIAL_QUIT_EV] || Input->JoystickHeld[0][JoystickSetup->GetButtonValue(BUT_A)] || Input->KeyboardHeld[SDLK_s] || Input->KeyboardHeld[SDLK_SPACE] || Input->JoystickHeld[0][JoystickSetup->GetButtonValue(BUT_X)] || Input->KeyboardHeld[SDLK_a] || Input->KeyboardHeld[SDLK_q] || Input->KeyboardHeld[SDLK_y] || Input->KeyboardHeld[SDLK_n] || Input->KeyboardHeld[SDLK_x]))
+		while (!(Input->KeyboardHeld[SDLK_z]  || Input->KeyboardHeld[SDLK_q] || Input->KeyboardHeld[SDLK_RETURN] || Input->KeyboardHeld[SDLK_ESCAPE] || Input->SpecialsHeld[SPECIAL_QUIT_EV] || Input->JoystickHeld[0][JoystickSetup->GetButtonValue(BUT_A)] || Input->KeyboardHeld[SDLK_s] || Input->KeyboardHeld[SDLK_SPACE] || Input->JoystickHeld[0][JoystickSetup->GetButtonValue(BUT_X)] || Input->KeyboardHeld[SDLK_a] || Input->KeyboardHeld[SDLK_y] || Input->KeyboardHeld[SDLK_n] || Input->KeyboardHeld[SDLK_x]))
 		{
 		    Input->Update();
 			if(GlobalSoundEnabled)
@@ -582,10 +582,10 @@ bool AskQuestion(char *Msg)
 			}
 			SDL_framerateDelay(&Fpsman);
 		}
-		if (Input->SpecialsHeld[SPECIAL_QUIT_EV])
-            GameState = GSQuit;
-		if (Input->JoystickHeld[0][JoystickSetup->GetButtonValue(BUT_A)] || Input->KeyboardHeld[SDLK_RETURN] || Input->KeyboardHeld[SDLK_s] || Input->KeyboardHeld[SDLK_SPACE] || Input->KeyboardHeld[SDLK_a] || Input->KeyboardHeld[SDLK_q] || Input->KeyboardHeld[SDLK_y])
+		if (Input->JoystickHeld[0][JoystickSetup->GetButtonValue(BUT_A)] || Input->KeyboardHeld[SDLK_RETURN] || Input->KeyboardHeld[SDLK_s] || Input->KeyboardHeld[SDLK_SPACE] || Input->KeyboardHeld[SDLK_a] || Input->KeyboardHeld[SDLK_y])
 			Result = true;
+		if (Input->SpecialsHeld[SPECIAL_QUIT_EV] || Input->KeyboardHeld[SDLK_q])
+            GameState = GSQuit;
 	}
 	delete Input;
 	return Result;
@@ -613,7 +613,7 @@ void PrintForm(char *msg)
     SDL_FreeSurface(ScreenBufferZoom);
 #endif
     SDL_Flip(Screen);
-    while (!( Input->SpecialsHeld[SPECIAL_QUIT_EV] || Input->JoystickHeld[0][JoystickSetup->GetButtonValue(BUT_A)] || Input->KeyboardHeld[SDLK_a] || Input->KeyboardHeld[SDLK_q] || Input->KeyboardHeld[SDLK_s] || Input->KeyboardHeld[SDLK_SPACE] || Input->KeyboardHeld[SDLK_RETURN]))
+    while (!( Input->SpecialsHeld[SPECIAL_QUIT_EV]  || Input->KeyboardHeld[SDLK_q] || Input->JoystickHeld[0][JoystickSetup->GetButtonValue(BUT_A)] || Input->KeyboardHeld[SDLK_a] || Input->KeyboardHeld[SDLK_q] || Input->KeyboardHeld[SDLK_s] || Input->KeyboardHeld[SDLK_SPACE] || Input->KeyboardHeld[SDLK_RETURN]))
     {
         Input->Update();
         if(GlobalSoundEnabled)
@@ -624,7 +624,7 @@ void PrintForm(char *msg)
         }
         SDL_framerateDelay(&Fpsman);
     }
-	if(Input->SpecialsHeld[SPECIAL_QUIT_EV])
+	if(Input->SpecialsHeld[SPECIAL_QUIT_EV] || Input->KeyboardHeld[SDLK_q])
 		GameState = GSQuit;
 
 	delete Input;

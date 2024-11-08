@@ -35,7 +35,7 @@ void SetupUsbJoystickButtons()
 
 		Input->Update();
 
-		if(Input->SpecialsHeld[SPECIAL_QUIT_EV])
+		if(Input->SpecialsHeld[SPECIAL_QUIT_EV] || Input->KeyboardHeld[SDLK_q])
             GameState = GSQuit;
 
 		if(Input->KeyboardHeld[SDLK_ESCAPE] || Input->KeyboardHeld[SDLK_b] ||  Input->JoystickHeld[0][JoystickSetup->GetButtonValue(BUT_B)])
@@ -131,7 +131,7 @@ void SetupUsbJoystickButtons()
                             JoystickSetup->SetButtonValue(Selection,Teller);
                             break;
                         }
-                    if(Input->SpecialsHeld[SPECIAL_QUIT_EV])
+                    if(Input->SpecialsHeld[SPECIAL_QUIT_EV] || Input->KeyboardHeld[SDLK_q])
                     {
                         GameState = GSQuit;
                         done = true;

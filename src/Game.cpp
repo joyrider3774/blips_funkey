@@ -85,7 +85,7 @@ void Game()
 
         Input->Update();
 
-        if(Input->SpecialsHeld[SPECIAL_QUIT_EV])
+        if(Input->SpecialsHeld[SPECIAL_QUIT_EV]  || Input->KeyboardHeld[SDLK_q])
             GameState = GSQuit;
 
         if (Input->Ready() && (Input->JoystickHeld[0][JoystickSetup->GetButtonValue(BUT_VOLUP)] || Input->KeyboardHeld[SDLK_o]))
