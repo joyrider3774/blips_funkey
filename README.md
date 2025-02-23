@@ -34,6 +34,11 @@ The aim of the game is to collect all the dollar coins in a level, you need to c
 | START | Test level when being in the level editor, go back to level editor after testing, Restart the current level |
 | Y + JOYSTICK | When playing a level you can look around in the level freely |
 
+## Preview for retrofe 
+![preview](blips-preview.jpg)
+
+- Created by me but based on style made from other images by TommyShots from funkey discord
+
 ## Credits
 Game is a remake of dos bips game made by Bryant Brownell and based on the gp2x version i initially made
 
