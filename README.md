@@ -35,7 +35,7 @@ The aim of the game is to collect all the dollar coins in a level, you need to c
 | Y + JOYSTICK | When playing a level you can look around in the level freely |
 
 ## Preview for retrofe 
-![preview](blips-preview.jpg)
+![preview](blips-preview.png)
 
 - Created by me but based on style made from other images by TommyShots from funkey discord
 
