@@ -40,7 +40,7 @@ The aim of the game is to collect all the dollar coins in a level, you need to c
 - Created by me but based on style made from other images by TommyShots from funkey discord
 
 ## Credits
-Game is a remake of dos bips game made by Bryant Brownell (bryant.brownell@gmail.com) and based on the gp2x version i initially made
+Game is a remake of dos bips game made by Bryant Brownell and based on the gp2x version i initially made
 
 ### Libraries
 - SDL
